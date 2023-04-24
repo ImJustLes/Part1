@@ -13,6 +13,8 @@ namespace ST10079848.POEPART1 {
         static int options;
         static int options2;
         static double scale;
+        static Boolean delCheck = false;
+        static Boolean scaleCheck = false;
 
         static void Main(string[] args) {
 
@@ -106,19 +108,36 @@ namespace ST10079848.POEPART1 {
                         Array.Clear(quan2, 0, quan2.Length);
                         Array.Clear(meas, 0, meas.Length);
                         Array.Clear(desc, 0, desc.Length);
+
+                        delCheck = true;
+                        scaleCheck = true;
                     }
 
                 } else if (options == 4) {
 
-                    DisplayRecipe(name, quan, meas, desc);
+                    if (delCheck == true) {
+
+                        Console.WriteLine("\nThere is no recipe to display. Please create a recipe.");
+
+                    } else {
+
+                        DisplayRecipe(name, quan, meas, desc);
+                    }
 
                 } else if (options == 5) {
 
-                    for (int i = 0; i < num; i++) {
+                    if (scaleCheck == true) {
 
-                        quan2[i] = quan[i];
-                    }
-                    Console.WriteLine("\nQuantities successfully reverted.");
+                        Console.WriteLine("\nThere are no quantities to scale. Please create a recipe.");
+                    
+                    } else {
+
+                        for (int i = 0; i < num; i++) {
+
+                            quan2[i] = quan[i];
+                        }
+                        Console.WriteLine("\nQuantities successfully reverted.");
+                    }                   
                
                 } else if (options == 6) {
 
@@ -134,6 +153,9 @@ namespace ST10079848.POEPART1 {
         }
 
         static void RecipeGet(string[] name, double[] quan, double[] quan2, string[] meas, string[] desc) {
+
+            delCheck = false;
+            scaleCheck = false;
 
             Console.WriteLine("\nHow many ingredients are in your recipe?");
             num = Convert.ToInt32(Console.ReadLine());
