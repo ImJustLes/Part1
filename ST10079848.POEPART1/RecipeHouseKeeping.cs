@@ -19,6 +19,7 @@ namespace ST10079848.POEPART1 {
         static double[] quan2;
         static string[] meas;
         static string[] desc;
+        static Program obj = new Program();
 
         public static int amountGet() {
            
@@ -137,18 +138,12 @@ namespace ST10079848.POEPART1 {
 
         public static void DeleteRecipe() {
 
-            Console.WriteLine("\nAre you sure you want to clear your recipe?\nY for yes.\nN for no.");
-            string dec = Console.ReadLine();
-
-            if (dec.ToLower().Equals("y")) {
-
                 Array.Clear(quan, 0, quan.Length);
                 Array.Clear(name, 0, name.Length);
                 Array.Clear(quan2, 0, quan2.Length);
                 Array.Clear(meas, 0, meas.Length);
                 Array.Clear(desc, 0, desc.Length);
-            }
-        }
+            }       
 
         public static void RevertQuan() {
 

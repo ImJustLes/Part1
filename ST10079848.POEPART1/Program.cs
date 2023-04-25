@@ -41,7 +41,7 @@ namespace ST10079848.POEPART1 {
 
                     if (recipeCheck == true) {
 
-                        Console.WriteLine("Please delete your current recipe in order to create a new one.");
+                        Console.WriteLine("\nPlease delete your current recipe in order to create a new one.");
                     
                     } else {
 
@@ -64,7 +64,7 @@ namespace ST10079848.POEPART1 {
 
                     if (scaleCheck == true) {
                         
-                        Console.WriteLine("There is no recipe to scale quanitites with. Please enter a recipe.");
+                        Console.WriteLine("\nThere is no recipe to scale quanitites with. Please enter a recipe.");
 
                     } else {
 
@@ -73,32 +73,37 @@ namespace ST10079848.POEPART1 {
 
                 } else if (options == 3) {
 
-                        delCheck = true;
-                        scaleCheck = true;
-                        recipeCheck = false;
-                        revertCheck = true;
-                        disCheck = true;
+                    Console.WriteLine("\nAre you sure you want to clear your recipe?\nY for yes.\nN for no.");
+                    string dec = Console.ReadLine();
 
-                    RecipeHouseKeeping.DeleteRecipe();
+                    if (dec.ToLower().Equals("y")) {
+
+                        if (delCheck == true) {
+
+                            Console.WriteLine("\nRecipe already deleted.");
                     
+                            } else {
 
+                                delCheck = true;
+                                scaleCheck = true;
+                                revertCheck = true;
+                                recipeCheck = false;
+                                disCheck = true;
+
+                                RecipeHouseKeeping.DeleteRecipe();
+                            }
+                        }
+                    
                 } else if (options == 4) {
 
-                    if (delCheck == true) {
-
-                        Console.WriteLine("\nThere is no recipe to display. Please create a recipe.");
-
-                    } else {
-
-                        if (recipeCheck == true) {
+                        if (disCheck == true) {
 
                             Console.WriteLine("\nThere is no recipe to display. Please create a recipe.");
 
                         } else {
 
                             DisplayRecipe();
-                        }                       
-                     }
+                        }                                         
 
                 } else if (options == 5) {
 
@@ -123,8 +128,7 @@ namespace ST10079848.POEPART1 {
                 }
             }
         }
-        static void DisplayRecipe()
-        {
+        static void DisplayRecipe() {
 
             Console.WriteLine("********RECIPE********");
 
