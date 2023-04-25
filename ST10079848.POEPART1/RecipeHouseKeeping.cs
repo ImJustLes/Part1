@@ -8,21 +8,13 @@ namespace ST10079848.POEPART1 {
 
     internal class RecipeHouseKeeping {
 
-        static Boolean delCheck = false;
-        static Boolean scaleCheck = false;
-        static Boolean recipeCheck = false;
-        static Boolean revertCheck = false;
         static double scale;
         static int options2;
         static int num;
         static int num2;
 
-       static int amountGet() {
-
-            delCheck = false;
-            scaleCheck = false;
-            revertCheck = false;
-            recipeCheck = true;
+       public static int amountGet() {
+           
 
             Console.WriteLine("\nHow many ingredients are in your recipe?");
             num = Convert.ToInt32(Console.ReadLine());
@@ -41,6 +33,7 @@ namespace ST10079848.POEPART1 {
                 Console.WriteLine("\nPlease write the name for ingredient number " + no);
                 name[i] = Console.ReadLine();
             }
+            quanGet(name);
             return name;
         }
 
