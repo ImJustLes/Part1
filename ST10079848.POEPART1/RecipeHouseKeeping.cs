@@ -31,7 +31,6 @@ namespace ST10079848.POEPART1 {
 
         public static string[] nameGet() {
 
-
             name = new string[num];
 
             for (int i = 0; i < num; i++) {
@@ -149,6 +148,15 @@ namespace ST10079848.POEPART1 {
                 Array.Clear(meas, 0, meas.Length);
                 Array.Clear(desc, 0, desc.Length);
             }
+        }
+
+        public static void RevertQuan() {
+
+            for (int i = 0; i < num; i++) {
+
+                quan[i] = quan2[i];
+            }
+            Console.WriteLine("\nQuantities successfully reverted.");
         }
     }
 }

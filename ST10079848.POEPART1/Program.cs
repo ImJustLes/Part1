@@ -13,8 +13,7 @@ namespace ST10079848.POEPART1 {
         static Boolean scaleCheck = false;
         static Boolean recipeCheck = false;
         static Boolean revertCheck = false;
-        static int num;
-        static int num2;
+        static Boolean disCheck =  false;
 
         static void Main(string[] args) {
 
@@ -43,6 +42,7 @@ namespace ST10079848.POEPART1 {
                         scaleCheck = false;
                         revertCheck = false;
                         recipeCheck = true;
+                        disCheck = false; 
 
                         RecipeHouseKeeping.amountGet();
                         RecipeHouseKeeping.nameGet();
@@ -55,7 +55,14 @@ namespace ST10079848.POEPART1 {
                 
                 } else if (options == 2) {
 
-                    RecipeHouseKeeping.ScaleFactor();
+                    if (scaleCheck == true) {
+                        
+                        Console.WriteLine("There is no recipe to scale quanitites with. Please enter a recipe.");
+
+                    } else {
+
+                        RecipeHouseKeeping.ScaleFactor();
+                    }
 
                 } else if (options == 3) {
 
@@ -63,6 +70,7 @@ namespace ST10079848.POEPART1 {
                         scaleCheck = true;
                         recipeCheck = false;
                         revertCheck = true;
+                        disCheck = true;
 
                     RecipeHouseKeeping.DeleteRecipe();
                     
@@ -75,19 +83,19 @@ namespace ST10079848.POEPART1 {
 
                     } else {
 
-                        DisplayRecipe();
+                        if (recipeCheck == true) {
 
-                        if (revertCheck == true) {
-                        
+                            Console.WriteLine("\nThere is no recipe to display. Please create a recipe.");
+
                         } else {
 
                             DisplayRecipe();
-                        }
-                    }
+                        }                       
+                     }
 
                 } else if (options == 5) {
 
-                    if (scaleCheck == true) {
+                    if (revertCheck == true) {
 
                         Console.WriteLine("\nThere are no quantities to revert. Please create a recipe.");
                     
@@ -113,19 +121,18 @@ namespace ST10079848.POEPART1 {
 
             Console.WriteLine("********RECIPE********");
 
-            for (int y = 0; y < num; y++)
+            for (int y = 0; y < RecipeHouseKeeping.amountGet(); y++)
             {
 
-                Console.WriteLine(quan[y] + meas[y] + " of " + name[y] + "(s)");
+                Console.WriteLine(RecipeHouseKeeping.quanGet() + "" + RecipeHouseKeeping.measGet() + " of " + RecipeHouseKeeping.nameGet() + "(s)");
             }
 
             Console.Write("\n");
 
-            for (int i = 0; i < desc.Length; i++)
-            {
+            for (int i = 0; i < RecipeHouseKeeping.amountGet2(); i++) {
 
                 int no = i + 1;
-                Console.WriteLine("Step " + no + ": " + desc[i]);
+                Console.WriteLine("Step " + no + ": " + RecipeHouseKeeping.descGet());
             }
             Console.WriteLine("**********************");
         }
