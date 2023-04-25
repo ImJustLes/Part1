@@ -17,7 +17,7 @@ namespace ST10079848.POEPART1 {
         static int num;
         static int num2;
 
-       static void amountGet() {
+       static int amountGet() {
 
             delCheck = false;
             scaleCheck = false;
@@ -26,6 +26,8 @@ namespace ST10079848.POEPART1 {
 
             Console.WriteLine("\nHow many ingredients are in your recipe?");
             num = Convert.ToInt32(Console.ReadLine());
+
+            return num;
         }
 
         public static string[] nameGet() {
@@ -60,22 +62,15 @@ namespace ST10079848.POEPART1 {
 
             string[] meas = new string[num];
 
-        }
-
-        public static void RecipeGet() {
-
-            
-            
-
             for (int i = 0; i < num; i++) {
-
-                
-
-                
 
                 Console.WriteLine("\nWhat is the unit of measuremnt for " + name[i] + "?");
                 meas[i] = Console.ReadLine();
             }
+            return meas;
+        }
+
+        public static string[] descGet() {
 
             Console.WriteLine("\nHow many steps are in your recipe?");
             num2 = Convert.ToInt32(Console.ReadLine());
@@ -84,75 +79,13 @@ namespace ST10079848.POEPART1 {
 
             Console.WriteLine("\n");
 
-            for (int x = 0; x < num2; x++)
-            {
+            for (int x = 0; x < num2; x++) {
 
                 int no = x + 1;
                 Console.Write("Step " + no + ": ");
                 desc[x] = Console.ReadLine();
             }
-
-            Console.WriteLine("********RECIPE********");
-
-            for (int y = 0; y < num; y++)
-            {
-
-                Console.WriteLine(quan[y] + meas[y] + " of " + name[y] + "(s)");
-            }
-
-            Console.Write("\n");
-
-            for (int i = 0; i < num2; i++)
-            {
-
-                int no = i + 1;
-                Console.WriteLine("Step " + no + ": " + desc[i]);
-            }
-            Console.WriteLine("**********************");
-        }
-
-        static void DisplayRecipe(string[] name, double[] quan, string[] meas, string[] desc)
-        {
-
-            Console.WriteLine("********RECIPE********");
-
-            for (int y = 0; y < num; y++)
-            {
-
-                Console.WriteLine(quan[y] + meas[y] + " of " + name[y] + "(s)");
-            }
-
-            Console.Write("\n");
-
-            for (int i = 0; i < desc.Length; i++)
-            {
-
-                int no = i + 1;
-                Console.WriteLine("Step " + no + ": " + desc[i]);
-            }
-            Console.WriteLine("**********************");
-        }
-
-        static void DisplayRecipe(double[] name, double[] quan, string[] meas, string[] desc)
-        {
-
-            Console.WriteLine("********RECIPE********");
-
-            for (int y = 0; y < num; y++)
-            {
-
-                Console.WriteLine(quan[y] + meas[y] + " of " + name[y] + "(s)");
-            }
-
-            Console.Write("\n");
-
-            for (int i = 0; i < desc.Length; i++)
-            {
-
-                int no = i + 1;
-                Console.WriteLine("Step " + no + ": " + desc[i]);
-            }
-            Console.WriteLine("**********************");
+            return desc;
         }
 
         static void ScaleFactor(double[] quan)
