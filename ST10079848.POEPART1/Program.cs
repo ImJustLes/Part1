@@ -15,10 +15,13 @@ namespace ST10079848.POEPART1 {
         static double scale;
         static Boolean delCheck = false;
         static Boolean scaleCheck = false;
+        static Boolean recipeCheck = false;
+        static Boolean revertCheck = false;
 
         static void Main(string[] args) {
 
             Console.ForegroundColor = ConsoleColor.Yellow;
+            recipeCheck = true;
 
             Console.WriteLine("How many ingredients are in your recipe?");
             num = Convert.ToInt32(Console.ReadLine());
@@ -84,8 +87,16 @@ namespace ST10079848.POEPART1 {
 
                 if (options == 1) {
 
+                    if (recipeCheck == true) {
+
+                        Console.WriteLine("Please delete your current recipe in order to create a new one.");
+                    
+                    } else { 
+
                     RecipeGet(name, quan, quan2, meas, desc);
 
+                    }
+                
                 } else if (options == 2) {
 
                     Console.WriteLine("\nSelect a value by number you would like to scale by:" +
@@ -111,6 +122,8 @@ namespace ST10079848.POEPART1 {
 
                         delCheck = true;
                         scaleCheck = true;
+                        recipeCheck = false;
+
                     }
 
                 } else if (options == 4) {
@@ -121,7 +134,14 @@ namespace ST10079848.POEPART1 {
 
                     } else {
 
-                        DisplayRecipe(name, quan, meas, desc);
+                        if (revertCheck == true) {
+
+                            Console.WriteLine("There are no quantity values to revert. Please make a recipe.");
+                        
+                        } else { 
+
+                            DisplayRecipe(name, quan, meas, desc);
+                        }
                     }
 
                 } else if (options == 5) {
@@ -156,6 +176,8 @@ namespace ST10079848.POEPART1 {
 
             delCheck = false;
             scaleCheck = false;
+            revertCheck = false;
+            recipeCheck = true;
 
             Console.WriteLine("\nHow many ingredients are in your recipe?");
             num = Convert.ToInt32(Console.ReadLine());
@@ -184,6 +206,8 @@ namespace ST10079848.POEPART1 {
             num2 = Convert.ToInt32(Console.ReadLine());
 
             desc = new string[num2];
+
+            Console.WriteLine("\n");
 
             for (int x = 0; x < num2; x++) {
 
@@ -261,8 +285,6 @@ namespace ST10079848.POEPART1 {
 
                 Console.WriteLine("Invalid option.");
             }
-
-            Console.Write(quan[0]);
         }
     }
 }
