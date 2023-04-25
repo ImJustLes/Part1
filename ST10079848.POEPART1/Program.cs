@@ -130,7 +130,7 @@ namespace ST10079848.POEPART1 {
         }
         static void DisplayRecipe() {
 
-            Console.WriteLine("********RECIPE********");
+            Console.WriteLine("\n********RECIPE********");
 
             for (int y = 0; y < num; y++) {
 

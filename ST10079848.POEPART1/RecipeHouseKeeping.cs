@@ -82,8 +82,6 @@ namespace ST10079848.POEPART1 {
 
             desc = new string[num2];
 
-            Console.WriteLine("\n");
-
             for (int x = 0; x < num2; x++) {
 
                 int no = x + 1;
@@ -131,8 +129,9 @@ namespace ST10079848.POEPART1 {
 
             } else {
 
-                Console.WriteLine("Invalid option.");
+                Console.WriteLine("\nInvalid option.");
             }
+            Console.WriteLine("Quantity values successfully reverted.");
             return quan;
         }
 
