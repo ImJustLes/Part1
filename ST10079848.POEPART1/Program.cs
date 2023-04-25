@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ST10079848.POEPART1 {
@@ -123,6 +125,7 @@ namespace ST10079848.POEPART1 {
                         delCheck = true;
                         scaleCheck = true;
                         recipeCheck = false;
+                        revertCheck = true;
 
                     }
 
@@ -288,3 +291,129 @@ namespace ST10079848.POEPART1 {
         }
     }
 }
+
+//How many ingredients are in your recipe?
+//3
+
+//Please write the name for ingredient number 1
+//Potato
+
+//What is the quantity of Potato
+//23
+
+//What is the unit of measuremnt for Potato?
+//g
+
+//Please write the name for ingredient number 2
+//Patty
+
+//What is the quantity of Patty
+//45
+
+//What is the unit of measuremnt for Patty?
+//kg
+
+//Please write the name for ingredient number 3
+//Bun
+
+//What is the quantity of Bun
+//89
+
+//What is the unit of measuremnt for Bun?
+//mg
+
+//How many steps are in your recipe?
+//3
+//Step 1: fry
+//Step 2: Baste
+//Step 3: Bake
+//******** RECIPE********
+//23g of Potato(s)
+//45kg of Patty(s)
+//89mg of Bun(s)
+
+//Step 1: fry
+//Step 2: Baste
+//Step 3: Bake
+//**********************
+
+//Select an option by number:
+//1) Create a new recipe.
+//2) Scale amount of ingredients.
+//3) Delete recipe.
+//4) Display recipe.
+//5) Reset ingredients to original quanitity.
+//6) Exit application.
+//3
+
+//Are you sure you want to clear your recipe?
+//Y for yes.
+//N for no.
+//Y
+
+//Select an option by number:
+//1) Create a new recipe.
+//2) Scale amount of ingredients.
+//3) Delete recipe.
+//4) Display recipe.
+//5) Reset ingredients to original quanitity.
+//6) Exit application.
+//4
+
+//There is no recipe to display. Please create a recipe.
+
+//Select an option by number:
+//1) Create a new recipe.
+//2) Scale amount of ingredients.
+//3) Delete recipe.
+//4) Display recipe.
+//5) Reset ingredients to original quanitity.
+//6) Exit application.
+//1
+
+//How many ingredients are in your recipe?
+//1
+
+//Please write the name for ingredient number 1
+//Poatota
+
+//What is the quantity of Poatota
+//21
+
+//What is the unit of measuremnt for Poatota?
+//g
+
+//How many steps are in your recipe?
+//1
+
+
+//Step 1: dat
+//******** RECIPE********
+//0g of Poatota(s)
+
+//Step 1: dat
+//**********************
+
+//Select an option by number:
+//1) Create a new recipe.
+//2) Scale amount of ingredients.
+//3) Delete recipe.
+//4) Display recipe.
+//5) Reset ingredients to original quanitity.
+//6) Exit application.
+//4
+//* *******RECIPE * *******
+//0 of(s)
+
+//Step 1:
+//Step 2:
+//Step 3:
+//**********************
+
+//Select an option by number:
+//1) Create a new recipe.
+//2) Scale amount of ingredients.
+//3) Delete recipe.
+//4) Display recipe.
+//5) Reset ingredients to original quanitity.
+//6) Exit application.
