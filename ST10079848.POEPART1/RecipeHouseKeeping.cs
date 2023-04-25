@@ -55,6 +55,7 @@ namespace ST10079848.POEPART1 {
             quan[i] = Convert.ToDouble(Console.ReadLine());
             quan2[i] = quan[i];
         }
+            ScaleFactor(quan); 
             return quan;
     }
 
@@ -77,6 +78,7 @@ namespace ST10079848.POEPART1 {
 
             return num2;
         }
+
         public static string[] descGet() {
 
             string[] desc = new string[num2];
@@ -92,50 +94,41 @@ namespace ST10079848.POEPART1 {
             return desc;
         }
 
-        static void ScaleFactor(double[] quan)
-        {
+        static double[] ScaleFactor(double[] quan) {
 
-            if (options2 == 1)
-            {
+            if (options2 == 1) {
 
                 scale = 0.5;
 
-                for (int i = 0; i < quan.Length; i++)
-                {
+                for (int i = 0; i < quan.Length; i++) {
 
                     quan[i] *= scale;
                 }
 
-            }
-            else if (options2 == 2)
-            {
+            
+            } else if (options2 == 2) {
 
                 scale = 2;
 
-                for (int i = 0; i < quan.Length; i++)
-                {
+                for (int i = 0; i < quan.Length; i++) {
 
                     quan[i] *= scale;
                 }
 
-            }
-            else if (options2 == 3)
-            {
+            } else if (options2 == 3) {
 
                 scale = 3;
 
-                for (int i = 0; i < quan.Length; i++)
-                {
+                for (int i = 0; i < quan.Length; i++) {
 
                     quan[i] *= scale;
                 }
 
-            }
-            else
-            {
+            } else {
 
                 Console.WriteLine("Invalid option.");
             }
+            return quan;
         }
     }
 }
