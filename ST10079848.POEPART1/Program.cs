@@ -14,6 +14,13 @@ namespace ST10079848.POEPART1 {
         static Boolean recipeCheck = false;
         static Boolean revertCheck = false;
         static Boolean disCheck =  false;
+        static int num;
+        static int num2;
+        static string[] name;
+        static double[] quan;
+        static double[] quan2;
+        static string[] meas;
+        static string[] desc;
 
         static void Main(string[] args) {
 
@@ -42,14 +49,14 @@ namespace ST10079848.POEPART1 {
                         scaleCheck = false;
                         revertCheck = false;
                         recipeCheck = true;
-                        disCheck = false; 
+                        disCheck = false;
 
-                        RecipeHouseKeeping.amountGet();
-                        RecipeHouseKeeping.nameGet();
-                        RecipeHouseKeeping.quanGet();
-                        RecipeHouseKeeping.measGet();
-                        RecipeHouseKeeping.amountGet2();
-                        RecipeHouseKeeping.amountGet2();
+                        num = RecipeHouseKeeping.amountGet();
+                        name = RecipeHouseKeeping.nameGet();
+                        quan = RecipeHouseKeeping.quanGet();
+                        meas = RecipeHouseKeeping.measGet();
+                        num2 = RecipeHouseKeeping.amountGet2();
+                        desc = RecipeHouseKeeping.descGet();
                         DisplayRecipe();
                     }
                 
@@ -121,18 +128,17 @@ namespace ST10079848.POEPART1 {
 
             Console.WriteLine("********RECIPE********");
 
-            for (int y = 0; y < RecipeHouseKeeping.amountGet(); y++)
-            {
+            for (int y = 0; y < num; y++) {
 
-                Console.WriteLine(RecipeHouseKeeping.quanGet() + "" + RecipeHouseKeeping.measGet() + " of " + RecipeHouseKeeping.nameGet() + "(s)");
+                Console.WriteLine(quan[y] + "" + meas[y] + " of " + name[y] + "(s)");
             }
 
             Console.Write("\n");
 
-            for (int i = 0; i < RecipeHouseKeeping.amountGet2(); i++) {
+            for (int i = 0; i < num2; i++) {
 
                 int no = i + 1;
-                Console.WriteLine("Step " + no + ": " + RecipeHouseKeeping.descGet());
+                Console.WriteLine("Step " + no + ": " + desc[i]);
             }
             Console.WriteLine("**********************");
         }
