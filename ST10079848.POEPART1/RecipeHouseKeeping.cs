@@ -70,10 +70,14 @@ namespace ST10079848.POEPART1 {
             return meas;
         }
 
-        public static string[] descGet() {
+        static int amountGet2() {
 
             Console.WriteLine("\nHow many steps are in your recipe?");
             num2 = Convert.ToInt32(Console.ReadLine());
+
+            return num2;
+        }
+        public static string[] descGet() {
 
             string[] desc = new string[num2];
 
