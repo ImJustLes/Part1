@@ -134,7 +134,7 @@ namespace ST10079848.POEPART1 {
 
                         for (int i = 0; i < num; i++) {
 
-                            quan2[i] = quan[i];
+                            quan[i] = quan2[i];
                         }
                         Console.WriteLine("\nQuantities successfully reverted.");
                     }                   
@@ -261,6 +261,8 @@ namespace ST10079848.POEPART1 {
 
                 Console.WriteLine("Invalid option.");
             }
+
+            Console.Write(quan[0]);
         }
     }
 }
